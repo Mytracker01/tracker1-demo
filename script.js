@@ -17,10 +17,11 @@ logoutBtn.addEventListener('click', () => {
     loginPage.classList.add('active');
 });
 
-// Google Map Initialization
 let map, marker;
+
+// Map initialization
 function initMap() {
-    const defaultLocation = { lat: 28.6139, lng: 77.209 }; // Delhi
+    const defaultLocation = { lat: 28.6139, lng: 77.209 }; // Delhi default
     map = new google.maps.Map(document.getElementById('map'), {
         center: defaultLocation,
         zoom: 12
@@ -31,6 +32,8 @@ function initMap() {
         map: map,
         title: "Vehicle Location"
     });
+
+    simulateMovement();
 }
 
 // Simulate live movement
@@ -54,9 +57,3 @@ document.getElementById('engineSwitch').addEventListener('change', function(){
 document.getElementById('motorSwitch').addEventListener('change', function(){
     alert(`Motors are now ${this.checked ? 'ON' : 'OFF'}`);
 });
-
-// Initialize Map
-window.onload = () => {
-    initMap();
-    simulateMovement();
-};
